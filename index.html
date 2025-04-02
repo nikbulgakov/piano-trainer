@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажер для пианино</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Тренажер для пианино</h1>
+        <div class="note-display">
+            <p>Нажмите ноту:</p>
+            <div class="current-note">C4</div>
+        </div>
+        <div class="piano">
+            <!-- Октава 1 (Контр-октава) -->
+            <div class="octave">
+                <div class="white-keys">
+                    <div class="key" data-note="C" data-octave="1"></div>
+                    <div class="key" data-note="D" data-octave="1"></div>
+                    <div class="key" data-note="E" data-octave="1"></div>
+                    <div class="key" data-note="F" data-octave="1"></div>
+                    <div class="key" data-note="G" data-octave="1"></div>
+                    <div class="key" data-note="A" data-octave="1"></div>
+                    <div class="key" data-note="B" data-octave="1"></div>
+                </div>
+                <div class="black-keys">
+                    <div class="key" data-note="C#" data-octave="1"></div>
+                    <div class="key" data-note="D#" data-octave="1"></div>
+                    <div class="key" data-note="F#" data-octave="1"></div>
+                    <div class="key" data-note="G#" data-octave="1"></div>
+                    <div class="key" data-note="A#" data-octave="1"></div>
+                </div>
+            </div>
+
+            <!-- Октава 2 (Большая октава) -->
+            <div class="octave">
+                <div class="white-keys">
+                    <div class="key" data-note="C" data-octave="2"></div>
+                    <div class="key" data-note="D" data-octave="2"></div>
+                    <div class="key" data-note="E" data-octave="2"></div>
+                    <div class="key" data-note="F" data-octave="2"></div>
+                    <div class="key" data-note="G" data-octave="2"></div>
+                    <div class="key" data-note="A" data-octave="2"></div>
+                    <div class="key" data-note="B" data-octave="2"></div>
+                </div>
+                <div class="black-keys">
+                    <div class="key" data-note="C#" data-octave="2"></div>
+                    <div class="key" data-note="D#" data-octave="2"></div>
+                    <div class="key" data-note="F#" data-octave="2"></div>
+                    <div class="key" data-note="G#" data-octave="2"></div>
+                    <div class="key" data-note="A#" data-octave="2"></div>
+                </div>
+            </div>
+
+            <!-- Октава 3 (Малая октава) -->
+            <div class="octave">
+                <div class="white-keys">
+                    <div class="key" data-note="C" data-octave="3"></div>
+                    <div class="key" data-note="D" data-octave="3"></div>
+                    <div class="key" data-note="E" data-octave="3"></div>
+                    <div class="key" data-note="F" data-octave="3"></div>
+                    <div class="key" data-note="G" data-octave="3"></div>
+                    <div class="key" data-note="A" data-octave="3"></div>
+                    <div class="key" data-note="B" data-octave="3"></div>
+                </div>
+                <div class="black-keys">
+                    <div class="key" data-note="C#" data-octave="3"></div>
+                    <div class="key" data-note="D#" data-octave="3"></div>
+                    <div class="key" data-note="F#" data-octave="3"></div>
+                    <div class="key" data-note="G#" data-octave="3"></div>
+                    <div class="key" data-note="A#" data-octave="3"></div>
+                </div>
+            </div>
+
+            <!-- Октава 4 (Первая октава) -->
+            <div class="octave">
+                <div class="white-keys">
+                    <div class="key" data-note="C" data-octave="4"></div>
+                    <div class="key" data-note="D" data-octave="4"></div>
+                    <div class="key" data-note="E" data-octave="4"></div>
+                    <div class="key" data-note="F" data-octave="4"></div>
+                    <div class="key" data-note="G" data-octave="4"></div>
+                    <div class="key" data-note="A" data-octave="4"></div>
+                    <div class="key" data-note="B" data-octave="4"></div>
+                </div>
+                <div class="black-keys">
+                    <div class="key" data-note="C#" data-octave="4"></div>
+                    <div class="key" data-note="D#" data-octave="4"></div>
+                    <div class="key" data-note="F#" data-octave="4"></div>
+                    <div class="key" data-note="G#" data-octave="4"></div>
+                    <div class="key" data-note="A#" data-octave="4"></div>
+                </div>
+            </div>
+
+            <!-- Октава 5 (Вторая октава) -->
+            <div class="octave">
+                <div class="white-keys">
+                    <div class="key" data-note="C" data-octave="5"></div>
+                    <div class="key" data-note="D" data-octave="5"></div>
+                    <div class="key" data-note="E" data-octave="5"></div>
+                    <div class="key" data-note="F" data-octave="5"></div>
+                    <div class="key" data-note="G" data-octave="5"></div>
+                    <div class="key" data-note="A" data-octave="5"></div>
+                    <div class="key" data-note="B" data-octave="5"></div>
+                </div>
+                <div class="black-keys">
+                    <div class="key" data-note="C#" data-octave="5"></div>
+                    <div class="key" data-note="D#" data-octave="5"></div>
+                    <div class="key" data-note="F#" data-octave="5"></div>
+                    <div class="key" data-note="G#" data-octave="5"></div>
+                    <div class="key" data-note="A#" data-octave="5"></div>
+                </div>
+            </div>
+
+            <!-- Октава 6 (Третья октава) -->
+            <div class="octave">
+                <div class="white-keys">
+                    <div class="key" data-note="C" data-octave="6"></div>
+                    <div class="key" data-note="D" data-octave="6"></div>
+                    <div class="key" data-note="E" data-octave="6"></div>
+                    <div class="key" data-note="F" data-octave="6"></div>
+                    <div class="key" data-note="G" data-octave="6"></div>
+                    <div class="key" data-note="A" data-octave="6"></div>
+                    <div class="key" data-note="B" data-octave="6"></div>
+                </div>
+                <div class="black-keys">
+                    <div class="key" data-note="C#" data-octave="6"></div>
+                    <div class="key" data-note="D#" data-octave="6"></div>
+                    <div class="key" data-note="F#" data-octave="6"></div>
+                    <div class="key" data-note="G#" data-octave="6"></div>
+                    <div class="key" data-note="A#" data-octave="6"></div>
+                </div>
+            </div>
+
+            <!-- Октава 7 (Четвертая октава) -->
+            <div class="octave">
+                <div class="white-keys">
+                    <div class="key" data-note="C" data-octave="7"></div>
+                    <div class="key" data-note="D" data-octave="7"></div>
+                    <div class="key" data-note="E" data-octave="7"></div>
+                    <div class="key" data-note="F" data-octave="7"></div>
+                    <div class="key" data-note="G" data-octave="7"></div>
+                    <div class="key" data-note="A" data-octave="7"></div>
+                    <div class="key" data-note="B" data-octave="7"></div>
+                </div>
+                <div class="black-keys">
+                    <div class="key" data-note="C#" data-octave="7"></div>
+                    <div class="key" data-note="D#" data-octave="7"></div>
+                    <div class="key" data-note="F#" data-octave="7"></div>
+                    <div class="key" data-note="G#" data-octave="7"></div>
+                    <div class="key" data-note="A#" data-octave="7"></div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button onclick="updateCurrentNote()">Новая нота</button>
+            <button onclick="resetScore()">Сбросить счет</button>
+            <button onclick="showHint()">Подсказка</button>
+        </div>
+        <div class="score">Счет: 0</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
