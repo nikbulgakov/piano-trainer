@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тренажер для пианино</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
 </head>
 <body>
     <div class="container">
@@ -160,6 +161,23 @@
             <button onclick="showHint()">Подсказка</button>
         </div>
         <div class="score">Счет: 0</div>
+        <div class="stats">
+            <h2>Статистика</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span>Правильных ответов:</span>
+                    <span id="correct-answers">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Неправильных ответов:</span>
+                    <span id="wrong-answers">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Точность:</span>
+                    <span id="accuracy">0%</span>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
