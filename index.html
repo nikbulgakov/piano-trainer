@@ -6,13 +6,76 @@
     <title>Тренажер для пианино</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h1>Тренажер для пианино</h1>
         <div class="note-display">
             <p>Нажмите ноту:</p>
-            <div class="current-note">C4</div>
+            <div class="current-note">C4 (До) - Первая октава</div>
+        </div>
+        <div class="controls">
+            <button id="startBtn" onclick="toggleClef()">Скрипичный ключ</button>
+            <button id="stopBtn" onclick="toggleClef()">Басовый ключ</button>
+        </div>
+        <div class="stave-container">
+            <svg class="stave" viewBox="0 0 200 160">
+                <!-- Основные линейки -->
+                <line x1="20" y1="30" x2="180" y2="30" stroke="black" stroke-width="2"/>
+                <line x1="20" y1="40" x2="180" y2="40" stroke="black" stroke-width="2"/>
+                <line x1="20" y1="50" x2="180" y2="50" stroke="black" stroke-width="2"/>
+                <line x1="20" y1="60" x2="180" y2="60" stroke="black" stroke-width="2"/>
+                <line x1="20" y1="70" x2="180" y2="70" stroke="black" stroke-width="2"/>
+                
+                <!-- Вертикальная черта слева -->
+                <line x1="20" y1="29" x2="20" y2="71" stroke="black" stroke-width="2"/>
+                
+                <!-- Линейки для скрипичного ключа -->
+                <g id="treble-lines" class="clef active">
+                    <line x1="20" y1="60" x2="180" y2="60" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="70" x2="180" y2="70" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="80" x2="180" y2="80" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="90" x2="180" y2="90" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="100" x2="180" y2="100" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="59" x2="20" y2="101" stroke="black" stroke-width="2"/>
+                </g>
+                
+                <!-- Линейки для басового ключа -->
+                <g id="bass-lines" class="clef">
+                    <line x1="20" y1="30" x2="180" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="40" x2="180" y2="40" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="50" x2="180" y2="50" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="60" x2="180" y2="60" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="70" x2="180" y2="70" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="29" x2="20" y2="71" stroke="black" stroke-width="2"/>
+                </g>
+                
+                <!-- Скрипичный ключ -->
+                <g id="treble-clef" class="clef active" transform="translate(5, 45) scale(1.0)">
+                    <path d="M 39.708934,63.678683 C 39.317094,65.77065 41.499606,70.115061 45.890584,70.256984 C 51.19892,70.428558 54.590321,66.367906 53.010333,59.740875 L 45.086538,23.171517 C 44.143281,18.81826 44.851281,16.457097 45.354941,15.049945 C 46.698676,11.295749 50.055822,9.7473042 50.873134,10.949208 C 51.339763,11.635413 52.468042,14.844006 49.256275,20.590821 C 46.751378,25.072835 35.096985,30.950138 34.2417,41.468011 C 33.501282,50.614249 43.075689,57.369301 51.339266,54.71374 C 56.825686,52.950639 59.653965,44.62402 56.258057,40.328987 C 47.29624,28.994371 32.923702,46.341263 46.846564,51.0935 C 45.332604,49.90238 44.300646,48.980054 44.1085,47.852721 C 42.237755,36.876941 58.741182,39.774741 54.294493,50.18735 C 52.466001,54.469045 45.080341,55.297323 40.874269,51.477433 C 37.350853,48.277521 35.787387,42.113231 39.708327,37.687888 C 45.018831,31.694223 51.288782,26.31366 52.954064,18.108736 C 54.923313,8.4061491 48.493821,0.84188926 44.429027,10.385835 C 43.065093,13.588288 42.557016,16.803074 43.863006,22.963534 L 51.780549,60.311215 C 52.347386,62.985028 51.967911,66.664419 49.472374,68.355474 C 48.236187,69.193154 43.861784,69.769668 42.791575,67.770092" 
+                           style="fill:black;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+                    <path transform="matrix(-1.08512,-2.036848e-2,2.036848e-2,-1.08512,90.68868,135.0572)"
+                          d="M 48.24903 64.584198 A 3.439605 3.4987047 0 1 1 41.36982,64.584198 A 3.439605 3.4987047 0 1 1 48.24903 64.584198 z"
+                          style="fill:black;fill-opacity:1;stroke:black;stroke-width:0.09213948;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+                </g>
+                
+                <!-- Басовый ключ -->
+                <g id="bass-clef" class="clef" transform="translate(35, 28) scale(0.045, -0.045)">
+                    <path d="M567 -386c0,29,23,52,52,52s52,-23,52,-52s-23,-52,-52,-52s-52,23,-52,52z
+m0,250c0,29,23,52,52,52s52,-23,52,-52s-23,-52,-52,-52s-52,23,-52,52z
+m-323,136
+c171,0,292,-86,292,-248c0,-263,-264,-415,-517,-521c-2,-2,-5,-3,-8,-3c-6,0,-11,5,-11,11c0,3,1,6,3,8c203,118,415,265,415,494c0,121,-64,237,-174,237c-79,0,-138,-57,-164,-133
+c14,8,28,13,43,13c55,0,100,-45,100,-100c0,-58,-44,-107,-100,-107c-60,0,-112,48,-112,107c0,132,103,242,233,242z" 
+                          style="fill:black;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+                </g>
+                
+                <!-- Контейнер для дополнительных линеек -->
+                <g id="additional-lines"></g>
+                
+                <!-- Нотный овал -->
+                <ellipse class="note" cx="100" cy="40" rx="7.6" ry="4.75" fill="none" stroke="black" stroke-width="2" transform="rotate(-15, 100, 40)"/>
+            </svg>
         </div>
         <div class="piano">
             <!-- Октава 1 (Контр-октава) -->
@@ -179,6 +242,5 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html> 
