@@ -238,11 +238,15 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
 .stave {
     width: 100%;
     height: auto;
+    max-height: 250px;
+    min-height: 180px;
+    preserveAspectRatio: xMidYMid meet;
 }
 
 .note {
@@ -271,4 +275,32 @@ h1 {
 
 .clef.active {
     opacity: 1;
+}
+
+/* Медиа-запросы для разных размеров экрана */
+@media screen and (max-width: 1200px) {
+    .stave-container {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stave-container {
+        max-width: 90%;
+        padding: 10px;
+    }
+    
+    .stave {
+        min-height: 140px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stave-container {
+        padding: 5px;
+    }
+    
+    .stave {
+        min-height: 100px;
+    }
 } 
